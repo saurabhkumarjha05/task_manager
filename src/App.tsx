@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Header } from './components/Header';
+import { Footer } from './components/Footer';
 import { FiltersPanel } from './components/FiltersPanel';
 import { StatsBar } from './components/StatsBar';
 import { TaskList } from './components/TaskList';
@@ -98,7 +99,7 @@ export default function App() {
 	}
 
 	return (
-		<div className="min-h-screen bg-[var(--bg)]">
+		<div className="min-h-screen bg-[var(--bg)] pb-12">
 			<Header onNew={() => { setEditing(undefined); setModalOpen(true); }} />
 			
 			{/* Mobile Sidebar Toggle */}
@@ -190,6 +191,8 @@ export default function App() {
 					onClick={() => setSidebarOpen(false)}
 				/>
 			)}
+
+			<Footer />
 		</div>
 	);
 }
