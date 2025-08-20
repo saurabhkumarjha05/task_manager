@@ -1,0 +1,349 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--bg: #fafafa;
+	--fg: #0f172a;
+	--muted: #64748b;
+	--card: #ffffff;
+	--card-foreground: #0f172a;
+	--border: #e2e8f0;
+	--accent: #3b82f6;
+	--accent-foreground: #ffffff;
+}
+
+html {
+	color-scheme: light dark;
+}
+
+/* Light theme */
+:root {
+	--bg: #fafafa;
+	--fg: #0f172a;
+	--muted: #64748b;
+	--card: #ffffff;
+	--card-foreground: #0f172a;
+	--border: #e2e8f0;
+	--accent: #3b82f6;
+	--accent-foreground: #ffffff;
+}
+
+/* Dark theme */
+.dark {
+	--bg: #0f172a;
+	--fg: #f8fafc;
+	--muted: #94a3b8;
+	--card: #1e293b;
+	--card-foreground: #f8fafc;
+	--border: #334155;
+	--accent: #60a5fa;
+	--accent-foreground: #0f172a;
+}
+
+* {
+	outline-color: var(--accent);
+}
+
+body {
+	@apply min-h-screen antialiased bg-[var(--bg)] text-[var(--fg)] transition-colors duration-200;
+}
+
+/* Container with responsive padding */
+.container {
+	@apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Enhanced Cards */
+.card {
+	@apply rounded-xl bg-[var(--card)] text-[var(--card-foreground)] shadow-sm border border-[var(--border)] transition-all duration-200 hover:shadow-md hover:border-[var(--accent)];
+}
+
+/* Enhanced Chips */
+.chip {
+	@apply inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium border border-[var(--border)] transition-all duration-200 hover:scale-105;
+}
+
+/* Enhanced Buttons */
+.btn {
+	@apply inline-flex items-center justify-center rounded-lg px-4 py-2.5 text-sm font-medium border border-[var(--border)] bg-[var(--card)] text-[var(--card-foreground)] hover:bg-[var(--border)] transition-all duration-200 active:scale-95 focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2;
+}
+
+.btn-primary {
+	@apply bg-[var(--accent)] text-[var(--accent-foreground)] border-[var(--accent)] hover:bg-[var(--accent)] shadow-sm hover:shadow-md;
+}
+
+.btn-ghost {
+	@apply border-transparent hover:bg-[var(--border)];
+}
+
+/* Enhanced Inputs - Fixed for better visibility */
+.input {
+	@apply w-full rounded-lg border border-[var(--border)] bg-[var(--card)] px-4 py-3 text-sm text-[var(--fg)] placeholder:text-[var(--muted)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 transition-all duration-200;
+}
+
+.textarea {
+	@apply w-full rounded-lg border border-[var(--border)] bg-[var(--card)] px-4 py-3 text-sm text-[var(--fg)] placeholder:text-[var(--muted)] min-h-[120px] resize-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 transition-all duration-200;
+}
+
+.label {
+	@apply text-sm font-medium text-[var(--fg)] mb-2 block;
+}
+
+/* Enhanced Select */
+select.input {
+	@apply cursor-pointer;
+}
+
+/* Enhanced Checkboxes */
+input[type="checkbox"] {
+	@apply w-4 h-4 rounded border-[var(--border)] text-[var(--accent)] focus:ring-[var(--accent)] focus:ring-offset-2;
+}
+
+/* Enhanced Radio Buttons */
+input[type="radio"] {
+	@apply w-4 h-4 border-[var(--border)] text-[var(--accent)] focus:ring-[var(--accent)] focus:ring-offset-2;
+}
+
+/* Enhanced Scrollbars */
+::-webkit-scrollbar {
+	@apply w-2;
+}
+
+::-webkit-scrollbar-track {
+	@apply bg-[var(--border)] rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+	@apply bg-[var(--muted)] rounded-full hover:bg-[var(--muted)];
+}
+
+/* Enhanced Focus States */
+.focus-ring {
+	@apply focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:outline-none;
+}
+
+/* Enhanced Animations */
+.animate-in {
+	@apply animate-pulse duration-300;
+}
+
+/* Enhanced Mobile */
+@media (max-width: 768px) {
+	.container {
+		@apply px-4;
+	}
+	
+	.card {
+		@apply rounded-lg;
+	}
+	
+	.btn {
+		@apply px-3 py-2 text-sm;
+	}
+}
+
+/* Enhanced Task Cards */
+.task-card {
+	@apply relative overflow-hidden;
+}
+
+.task-card::before {
+	content: '';
+	@apply absolute inset-0 bg-gradient-to-r from-transparent via-[var(--accent)] to-transparent opacity-0 transition-opacity duration-300;
+}
+
+/* Enhanced Status Colors */
+.status-todo {
+	@apply bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-800;
+}
+
+.status-in-progress {
+	@apply bg-amber-50 dark:bg-amber-950 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-800;
+}
+
+.status-done {
+	@apply bg-green-50 dark:bg-green-950 text-green-700 dark:text-green-300 border-green-200 dark:border-green-800;
+}
+
+/* Enhanced Priority Colors */
+.priority-low {
+	@apply bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-700;
+}
+
+.priority-medium {
+	@apply bg-amber-50 dark:bg-amber-950 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-800;
+}
+
+.priority-high {
+	@apply bg-red-50 dark:bg-red-950 text-red-700 dark:text-red-300 border-red-200 dark:border-red-800;
+}
+
+/* Enhanced Due Date Colors */
+.due-overdue {
+	@apply bg-red-50 dark:bg-red-950 text-red-700 dark:text-red-300 border-red-200 dark:border-red-800;
+}
+
+.due-today {
+	@apply bg-amber-50 dark:bg-amber-950 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-800;
+}
+
+.due-future {
+	@apply bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-800;
+}
+
+/* Enhanced Modal */
+.modal-overlay {
+	@apply fixed inset-0 z-50 bg-black backdrop-blur-sm;
+}
+
+.modal-content {
+	@apply relative w-full max-w-2xl mx-4 bg-[var(--card)] rounded-xl shadow-2xl border border-[var(--border)];
+}
+
+/* Enhanced Header */
+.header {
+	@apply sticky top-0 z-40 backdrop-blur-md bg-[var(--card)] border-b border-[var(--border)] shadow-sm;
+}
+
+/* Enhanced Sidebar */
+.sidebar {
+	@apply space-y-6 p-6 bg-[var(--card)] rounded-xl border border-[var(--border)] shadow-sm;
+}
+
+/* Enhanced Stats */
+.stats-grid {
+	@apply grid grid-cols-2 md:grid-cols-3 gap-4;
+}
+
+.stat-item {
+	@apply text-center p-3 rounded-lg bg-[var(--border)];
+}
+
+/* Enhanced Search */
+.search-container {
+	@apply relative flex-1 max-w-2xl;
+}
+
+.search-input {
+	@apply w-full pl-10 pr-4 py-2.5 bg-[var(--card)] border border-[var(--border)] rounded-lg text-[var(--fg)] placeholder:text-[var(--muted)] focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 transition-all duration-200;
+}
+
+/* Enhanced Floating Action Button */
+.fab {
+	@apply fixed bottom-6 right-6 w-14 h-14 bg-[var(--accent)] text-[var(--accent-foreground)] rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-200 focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2;
+}
+
+/* Enhanced Grid Layout */
+.tasks-grid {
+	@apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6;
+}
+
+/* Enhanced Empty State */
+.empty-state {
+	@apply text-center py-20 px-6;
+}
+
+.empty-state-icon {
+	@apply w-16 h-16 mx-auto mb-4 text-[var(--muted)];
+}
+
+/* Enhanced Loading States */
+.loading {
+	@apply animate-pulse bg-[var(--border)] rounded;
+}
+
+/* Enhanced Transitions */
+.transition-all {
+	transition: all 200ms ease-in-out;
+}
+
+/* Enhanced Hover Effects */
+.hover-lift {
+	@apply hover:-translate-y-1 hover:shadow-lg transition-all duration-200;
+}
+
+/* Enhanced Focus Management */
+.focus-visible {
+	@apply focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:outline-none;
+}
+
+/* Enhanced Mobile Navigation */
+@media (max-width: 768px) {
+	.mobile-nav {
+		@apply fixed bottom-0 left-0 right-0 bg-[var(--card)] border-t border-[var(--border)] p-4 z-30;
+	}
+	
+	.mobile-nav-item {
+		@apply flex flex-col items-center gap-1 text-xs;
+	}
+}
+
+/* Enhanced Accessibility */
+.sr-only {
+	@apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+}
+
+/* Enhanced Print Styles */
+@media print {
+	.fab, .mobile-nav, .header {
+		@apply hidden;
+	}
+}
+
+/* Responsive improvements */
+@media (max-width: 640px) {
+	.tasks-grid {
+		@apply grid-cols-1 gap-4;
+	}
+	
+	.card {
+		@apply p-4;
+	}
+	
+	.btn {
+		@apply px-3 py-2 text-sm;
+	}
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+	.tasks-grid {
+		@apply grid-cols-2 gap-5;
+	}
+}
+
+@media (min-width: 1025px) {
+	.tasks-grid {
+		@apply grid-cols-3 gap-6;
+	}
+}
+
+@media (min-width: 1280px) {
+	.tasks-grid {
+		@apply grid-cols-4 gap-6;
+	}
+}
+
+/* Modal improvements for mobile */
+@media (max-width: 640px) {
+	.modal-content {
+		@apply mx-2 max-h-[90vh] overflow-y-auto;
+	}
+}
+
+/* Better spacing for mobile */
+@media (max-width: 768px) {
+	.container {
+		@apply px-3;
+	}
+	
+	main {
+		@apply py-4;
+	}
+	
+	.header .container {
+		@apply py-3;
+	}
+}
+
+
